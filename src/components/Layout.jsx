@@ -3,6 +3,11 @@ import Header from './Header';
 
 export default class Layout extends Component {
   render() {
-    return <Header />;
+    return (
+      <>
+        <Header />
+        <div>{this.props.children}</div>
+      </>
+    );
   }
 }
