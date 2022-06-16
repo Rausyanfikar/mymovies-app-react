@@ -2,8 +2,9 @@ import Layout from '../components/Layout';
 import React, { Component } from 'react';
 import { Card, CardLoading } from '../components/Card';
 import axios from 'axios';
+import { withRouter } from '../utils/navigation';
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   state = {
     data: [],
     loading: true,
@@ -40,7 +41,7 @@ export default class HomePage extends Component {
           </div>
           <div className="grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-4 lg:grid-cols-5 m-2 gap-3">
             {this.state.data.map((item) => (
-              <Card key={item.id} title={item.title} image={item.poster_path} />
+              <Card key={item.id} title={item.title} image={item.poster_path} onClickItem={() => this.props.navigate(`movie/${item.id}`)} />
             ))}
           </div>
         </Layout>
@@ -48,3 +49,5 @@ export default class HomePage extends Component {
     }
   }
 }
+
+export default withRouter(HomePage);

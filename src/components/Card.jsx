@@ -5,8 +5,10 @@ class Card extends Component {
     return (
       <>
         <div className="container grow p-7   flex flex-col bg-slate-700 max-w-sm mx-auto rounded-md  text-white">
-          <img className="max-w-full  h-auto" width="500" height="750" src={`https://image.tmdb.org/t/p/w500${this.props.image}`} alt={this.props.image} />
-          <p className="py-4">{this.props.title}</p>
+          <div className="cursor-pointer" onClick={this.props.onClickItem}>
+            <img className="max-w-full  h-auto" width="500" height="750" src={`https://image.tmdb.org/t/p/w500${this.props.image}`} alt={this.props.image} />
+            <p className="py-4">{this.props.title}</p>
+          </div>
           <button className="bg-pink-800 justify-center h-10 hover:bg-pink-900 rounded-md mt-auto">Add to Favorite</button>
         </div>
       </>
