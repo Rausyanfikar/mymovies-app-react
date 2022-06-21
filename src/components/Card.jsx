@@ -8,7 +8,9 @@ function Card(props) {
           <img className="max-w-full  h-auto" width="500" height="750" src={props.image ? `https://image.tmdb.org/t/p/w500${props.image}` : 'https://via.placeholder.com/500x750?text=No+Image'} alt={props.image} />
           <p className="py-4">{props.title}</p>
         </div>
-        <button className="bg-pink-800 justify-center h-10 hover:bg-pink-900 rounded-md mt-auto">Add to Favorite</button>
+        <button className="bg-pink-800 justify-center h-10 hover:bg-pink-900 rounded-md mt-auto " onClick={props.onClickFav}>
+          Add to Favorite
+        </button>
       </div>
     </>
   );

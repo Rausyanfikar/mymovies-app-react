@@ -4,8 +4,8 @@ import Header from './Header';
 function Layout(props) {
   return (
     <>
-      <Header />
-      <div>{props.children}</div>
+      <Header onKeyDown={props.onKeyDown} />
+      <div className="h-full w-full bg-white dark:bg-black">{props.children}</div>
     </>
   );
 }
