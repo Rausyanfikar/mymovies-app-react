@@ -35,7 +35,10 @@ function Header(props) {
             />
           </label>
           {theme === 'dark' ? <FaSun className="w-8 h-8 text-white" onClick={() => handleThemeChange('light')} /> : <FaMoon className="w-8 h-8 text-white" onClick={() => handleThemeChange('dark')} />}
-          <Link to="/favorite">Favorite</Link>
+
+          <Link className="text-white" to="/favorite">
+            Favorite
+          </Link>
         </ul>
       </nav>
     </>
