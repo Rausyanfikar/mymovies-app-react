@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import { withRouter } from '../utils/navigation';
 
 function Layout(props) {
   return (
@@ -10,4 +11,4 @@ function Layout(props) {
   );
 }
 
-export default Layout;
+export default withRouter(Layout);

@@ -5,25 +5,29 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import Favorite from '../pages/Favorite';
 import Detail from '../pages/Detail';
-import { ThemeContext } from '@emotion/react';
+import { ThemeContext } from '../utils/context';
 
-function Rot(props) {
+const Rot = (props) => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
   const background = useMemo(() => ({ theme, setTheme }), [theme]);
 
   useEffect(() => {
+    handleThemeChange();
+  }, [theme]);
+
+  const handleThemeChange = () => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [theme]);
+  };
 
   useEffect(() => {
     const tempLocal = localStorage.getItem('favMovie');
     if (tempLocal) {
-      dispatch(reduxAction('SET_FAVORITES', JSON.parse(tempLocal)));
+      dispatch(reduxAction('SET_FAVORITE', JSON.parse(tempLocal)));
     }
   }, []);
 
@@ -46,6 +50,6 @@ function Rot(props) {
       </BrowserRouter>
     </ThemeContext.Provider>
   );
-}
+};
 
 export default Rot;

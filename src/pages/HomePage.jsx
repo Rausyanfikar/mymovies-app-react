@@ -65,8 +65,8 @@ const HomePage = (props) => {
   } else {
     return (
       <Layout onKeyDown={(e) => handleSearch(e)}>
-        <div className="m-8  font-extrabold flex  text-pink-700 text-xl ">
-          <h1 className="max-w-fit shadow-md p-1 shadow-black mx-auto ">NONTON GRATIS CUMA LIAT POSTER</h1>
+        <div className="  font-extrabold flex  text-pink-700 text-xl ">
+          <h1 className="max-w-fit  p-3 mx-auto ">NONTON GRATIS CUMA LIAT POSTER</h1>
         </div>
         <div className="grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-4 lg:grid-cols-5 m-2 gap-3">
           {data.map((item) => (
