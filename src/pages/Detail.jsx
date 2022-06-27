@@ -3,11 +3,13 @@ import Layout from '../components/Layout';
 import { withRouter } from '../utils/navigation';
 import axios from 'axios';
 import { CardLoading } from '../components/Card';
+import { useParams } from 'react-router-dom';
 
 const Detail = (props) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [similiar, setSimiliar] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
     fetchData();
@@ -15,7 +17,8 @@ const Detail = (props) => {
   }, []);
 
   function fetchData() {
-    const { movie_id } = props.params;
+    console.log(params);
+    const { movie_id } = params;
     axios
       .get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=d06c4019966aa719f29e61a7c4ad76a8&language=en-US&append_to_response=videos,credits`)
       .then((response) => {
